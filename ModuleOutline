@@ -1,0 +1,48 @@
+List of classes:
+-------------------------------------------------------------------------
+1) Board.java
+The purpose of board is to record the state of the game, and perform potential actions without actually making those moves. The following methods/modules will need to be implemented:
+
+	b) boolean isLegal(Move m) - this method returns a boolean that determines if the passed-in Move m is legal given the current board. 
+
+	c) boolean hasNetwork(int color) - this method returns a boolean that is true if the current board has any winning networks. 
+
+	d) Moves[] genMoves(int color) - this method should generate all legal moves for the specified color. This group of moves (in an array?) should then be available for evaluation of score, etc.
+
+	e) void makeMove(Move m) - this method performs Move m on the current board.
+
+	f) void undoMove(Move m) - this method is useful for performing tests of potential boards, and then removing the test move.
+
+	g) int evaluate(Move m, int color) - this method should generate an integer score value for the potential Move m for the player indicated by the color. This method may use a GameTree.
+	
+	h) boolean explore(int color, Chip c, int length, int direction) - this method goes from Chip to Chip, trying to create a network. It returns a boolean value depending on if it is capable of exploring from one goal to the other in at least 6 Chips.
+
+	i) Move firstMove(), Move secondMove(), etc. - depending on the strategy, one may want to make the first several moves without any evaluation. 
+
+	j) void printBoard() - prints the current board for debugging purposes.
+
+	k) int numConnections(Chip c) - returns the number of straight line connections one Chip has.
+
+	l) bestMove()
+
+-------------------------------------------------------------------------
+2) Chip.java
+The purpose of this class is to provide a framework for each piece on the board (called a Chip, in this case). These chips contain their color, a boolean "visited", and position. There are not any necessary modules for the Chip class.
+
+-------------------------------------------------------------------------
+3) MachinePlayer.java
+The MachinePlayer class implements the AI player. The following modules need to be implemented in the MachinePlayer class:
+
+	a) chooseMove() - this method relies on an evaluation method to return the best move for "this" player using the Board.bestMove() method.
+
+	b) opponentMove(Move m) - this method updates the game board for the opponents move, if that move is legal.
+
+	c) forceMove(Move m) - this method forces a certain move, and returns a boolean depending on the legality of the Move m. 
+
+-------------------------------------------------------------------------
+SCORING GUIDE:
+1000 -> A winning network
+.
+100  -> A move that makes a connection from one Chip to another for you.
+50   -> Move that blocks a connection for the opponent.
+0    -> Does not block or contribute to any connections.

@@ -1,0 +1,41 @@
+List of classes:
+	- Board
+	- Chip
+	- MachinePlayer
+	- Move
+
+List of modules used by MachinePlayer:
+	+++ Board methods +++
+		- bestMove()
+		- isLegal()
+		- makeMove()
+
+Module prototypes:
+/**
+ * isLegal() returns a boolean value determining if the input Move (m) is
+ * within the rules on the current board.
+ * 
+ * @param m The attempted move.
+ * @return true if the Move m is legal
+ */
+public boolean isLegal(Move m)
+
+/**
+ * bestMove() returns the best move for the myColor player based on
+ * scores for each potential move. These scores are generated using
+ * a GameTree and the search depth indicated in the initialization
+ * of the MachinePlayer.
+ * 
+ * @return The move that is most favorable for the player.
+ */
+public Move bestMove()
+
+/**
+ * makeMove() executes the input move on the current board.
+ * 
+ * @param m This Move is the move you're trying to make.
+ * @param color The color of the player making the move.
+ */
+public void makeMove(Move m, int color) 
+
+
